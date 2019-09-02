@@ -1,0 +1,8 @@
+[com.youguu.ios.mq.listener.IosMncgBatchListener]
+maxThread=10
+[com.youguu.ios.mq.listener.IosMncgBroadcastListener]
+maxThread=20
+[com.youguu.ios.mq.listener.IosYglcBatchListener]
+maxThread=5
+[com.youguu.ios.mq.listener.IosYglcBroadcastListener]
+maxThread=5

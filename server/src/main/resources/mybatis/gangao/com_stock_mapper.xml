@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="StkBasicinfo">
+
+
+	<sql id="sql_select">
+      SELECT ID, SECUCODE, COMCODE, TRADINGCODE, SECUABBR, CHINAME, CHINAMEABBR, CHISPELLING,
+    ENGNAME, ENGNAMEABBR, SECUCATEGORYCODEI, SECUCATEGORYCODEII, SECUCATEGORY, EXCHANGECODE,
+    EXCHANGENAME, LISTINGDATE, DELISTINGDATE, BOARDCODE, BOARDNAME, LISTINGSTATECODE,
+    CURRENCYCODE, ISIN, ENTRYTIME, UPDATETIME, GROUNDTIME, UPDATEID, RESOURCEID, RECORDID
+	</sql>
+
+	<!--查询所有的数据-->
+	<select id="selectfindAllStock" resultType="StkBasicinfo">
+		<include refid="sql_select" />
+		FROM gangao.STK_BASICINFO
+	</select>
+
+	<!--查询所有的数据-->
+	<select id="selectStockByCode"  resultType="StkBasicinfo" parameterType="map">
+		select COMCODE,TRADINGCODE from gangao.STK_BASICINFO where TRADINGCODE = #{stockCode}
+		and SecuCategoryCodeII = '1001'
+	</select>
+
+	<select id="selectStocInner"  resultType="StkBasicinfo">
+			select a.TradingCode,a.SecuAbbr,a.COMCODE
+			FROM gangao.STK_BASICINFO a
+			INNER JOIN
+			(select STOCKCODE from datacenter.intelligent_stock) b
+			on a.TRADINGCODE = b.STOCKCODE
+			and a.SecuCategoryCodeII = '1001'
+			ORDER BY a.TRADINGCODE
+	</select>
+
+</mapper>

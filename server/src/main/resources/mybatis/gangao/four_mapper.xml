@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Fourth">
+
+
+    <!--查询所有的数据-->
+    <select id="selectFourByCode" resultType="Fourth" parameterType="map">
+          SELECT
+            ComCode,ROA,TLToTA,CurrentRatio,GrossProfitMargin,TotalAssetTurnover
+            FROM
+                gangao.COM_MAINFINAINDEXNAS
+           WHERE ComCode = #{ComCode} and dataFlag = 101
+              and ReportType = #{reportType}
+              and EndDate = #{endDate}
+	</select>
+
+	<!--查询所有的数据-->
+	<select id="getFourList" resultType="Fourth" parameterType="map">
+		select
+            c.comcode,c.ENDDATE,c.REPORTTYPE,c.DATAFLAG,
+            c.ROA,c.TLToTA,c.CurrentRatio,c.GrossProfitMargin,c.TotalAssetTurnover
+         from
+            gangao.COM_MAINFINAINDEXNAS c
+         INNER JOIN
+            (
+             select a.COMCODE
+                FROM gangao.STK_BASICINFO a
+             INNER JOIN
+              (select STOCKCODE from datacenter.intelligent_stock) b
+             on a.TRADINGCODE = b.STOCKCODE
+             and a.SecuCategoryCodeII = '1001'
+             )d
+        on c.comcode = d.COMCODE
+        and c.dataFlag = 101
+        and c.EndDate = #{endDate}
+        and c.ReportType = #{reportType}
+        ORDER BY c.comcode
+	</select>
+
+</mapper>

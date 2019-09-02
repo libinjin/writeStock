@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="IntelligentStock">
+
+
+	<sql id="sql_select">
+      SELECT STOCKCODE, STOCKNAME, EPS, BVPS, NETCASHFLOWPS, TOTALLIAB, TOTALASSET, ATOTALSHARE,
+      ALISTEDSHARE, FUNDFLOW3, FUNDFLOW5, FUNDFLOW10, FUNDFLOW21, CREATETIME, UPDATETIME
+	</sql>
+
+	<!--查询所有的数据-->
+	<select id="findAllStock" resultType="IntelligentStock">
+		<include refid="sql_select" />
+		FROM intelligent_stock
+	</select>
+
+	<select id="selectAllStockCode" resultType="string">
+		SELECT STOCKCODE
+		FROM intelligent_stock
+	</select>
+
+</mapper>

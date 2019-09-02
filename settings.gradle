@@ -1,0 +1,10 @@
+rootProject.name = 'intelligentStock'
+include 'server'
+include 'common'
+include 'client'
+
+project(':common').projectDir = "$rootDir/common" as File
+
+project(':server').projectDir = "$rootDir/server" as File
+
+project(':client').projectDir = "$rootDir/client" as File

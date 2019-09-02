@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="logPrefix" value="database.quote-" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+	<typeAliases>
+		<typeAlias alias="StkBasicinfo" type="com.youguu.intelligent.pojo.StkBasicinfo"/>
+
+		<typeAlias alias="First" type="com.youguu.intelligent.pojo.First"/>
+		<typeAlias alias="Second" type="com.youguu.intelligent.pojo.Second"/>
+		<typeAlias alias="Third" type="com.youguu.intelligent.pojo.Third"/>
+		<typeAlias alias="Fourth" type="com.youguu.intelligent.pojo.Fourth"/>
+		<typeAlias alias="Fiveth" type="com.youguu.intelligent.pojo.Fiveth"/>
+		<typeAlias alias="Sixth" type="com.youguu.intelligent.pojo.Sixth"/>
+		<typeAlias alias="TotalNum" type="com.youguu.intelligent.pojo.TotalNum"/>
+
+	</typeAliases>
+	<!-- 使用spring之后，数据源的配置移植到了spring上，所以iBATIS本身的配置可以取消 -->
+	<mappers>
+		<!--<mapper resource="mybatis/stock/intelligent_stock_mapper.xml"/>-->
+		<mapper resource="mybatis/gangao/com_stock_mapper.xml"/>
+
+		<mapper resource="mybatis/gangao/first_mapper.xml"/>
+		<mapper resource="mybatis/gangao/second_mapper.xml"/>
+		<mapper resource="mybatis/gangao/third_mapper.xml"/>
+		<mapper resource="mybatis/gangao/four_mapper.xml"/>
+		<mapper resource="mybatis/gangao/five_mapper.xml"/>
+		<mapper resource="mybatis/gangao/six_mapper.xml"/>
+		<mapper resource="mybatis/gangao/totalNum_mapper.xml"/>
+
+	</mappers>
+</configuration>
