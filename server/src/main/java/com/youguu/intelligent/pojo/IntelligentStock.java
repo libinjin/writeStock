@@ -82,6 +82,11 @@ public class IntelligentStock {
      */
     private Date updateTime;
 
+    /**
+     * 年每股收益
+     */
+    private double epsYear;
+
     public String getStockCode() {
         return stockCode;
     }
@@ -203,6 +208,14 @@ public class IntelligentStock {
         this.updateTime = updateTime;
     }
 
+    public double getEpsYear() {
+        return epsYear;
+    }
+
+    public void setEpsYear(double epsYear) {
+        this.epsYear = epsYear;
+    }
+
     @Override
     public String toString() {
         return "IntelligentStock{" +
@@ -221,8 +234,10 @@ public class IntelligentStock {
                 ", fundFlow21=" + fundFlow21 +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", epsYear=" + epsYear +
                 '}';
     }
+
 
 
 }

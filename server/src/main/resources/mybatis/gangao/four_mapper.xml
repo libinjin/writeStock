@@ -18,7 +18,7 @@
 	<select id="getFourList" resultType="Fourth" parameterType="map">
 		select
             c.comcode,c.ENDDATE,c.REPORTTYPE,c.DATAFLAG,
-            c.ROA,c.TLToTA,c.CurrentRatio,c.GrossProfitMargin,c.TotalAssetTurnover
+            c.ROA,c.ROE,c.TLToTA,c.CurrentRatio,c.GrossProfitMargin,c.TotalAssetTurnover
          from
             gangao.COM_MAINFINAINDEXNAS c
          INNER JOIN

@@ -6,7 +6,6 @@ import com.youguu.intelligent.dao.FourDao;
 import com.youguu.intelligent.dao.SecondDao;
 import com.youguu.intelligent.dao.ShNumDao;
 import com.youguu.intelligent.dao.SixDao;
-import com.youguu.intelligent.dao.ThirdDao;
 import com.youguu.intelligent.moudle.gangao.GangAoDAO;
 import com.youguu.intelligent.pojo.First;
 import com.youguu.intelligent.pojo.Fiveth;
@@ -14,7 +13,6 @@ import com.youguu.intelligent.pojo.Fourth;
 import com.youguu.intelligent.pojo.Second;
 import com.youguu.intelligent.pojo.Sixth;
 import com.youguu.intelligent.pojo.StkBasicinfo;
-import com.youguu.intelligent.pojo.Third;
 import com.youguu.intelligent.pojo.TotalField;
 import com.youguu.intelligent.pojo.TotalNum;
 import org.springframework.stereotype.Service;
@@ -34,9 +32,6 @@ public class TotalService {
 
     @Resource
     private SecondDao secondDao;
-
-    @Resource
-    private ThirdDao thirdDao;
 
     @Resource
     private FourDao fourDao;
@@ -67,8 +62,6 @@ public class TotalService {
         List<First> firstList = firstDao.querFirstList(endDate, reportType);
 
         List<Second> secondList = secondDao.querSecondList(endDate, reportType);
-
-        List<Third> thirdList = thirdDao.queryThird(endDate, reportType);
 
         List<Fourth> fourthList = fourDao.queryFour(endDate, reportType);
 
@@ -108,19 +101,12 @@ public class TotalService {
             }
         }
 
-        for (Third third : thirdList) {
-            Long comCode = third.getComcode();
-            if(map.containsKey(comCode)){
-                TotalField totalField = map.get(comCode);
-                totalField.setRoe(third.getRoe());
-            }
-        }
-
 
         for (Fourth fourth : fourthList) {
             Long comCode = fourth.getComcode();
             if(map.containsKey(comCode)){
                 TotalField totalField = map.get(comCode);
+                totalField.setRoe(fourth.getRoe());
                 totalField.setRoa(fourth.getRoa());
                 totalField.setTltota(fourth.getTltota());
                 totalField.setCurrentratio(fourth.getCurrentratio());

@@ -6,7 +6,6 @@ import com.youguu.intelligent.dao.FiveDao;
 import com.youguu.intelligent.dao.FourDao;
 import com.youguu.intelligent.dao.SecondDao;
 import com.youguu.intelligent.dao.SixDao;
-import com.youguu.intelligent.dao.ThirdDao;
 import com.youguu.intelligent.moudle.gangao.GangAoDAO;
 import com.youguu.intelligent.pojo.First;
 import com.youguu.intelligent.pojo.Fiveth;
@@ -28,8 +27,6 @@ public class GangAoDAOTest extends BaseTestClass {
     FirstDao firstDao = (FirstDao) getInstance("firstDao");
 
     SecondDao secondDao = (SecondDao) getInstance("secondDao");
-
-    ThirdDao thirdDao = (ThirdDao) getInstance("thirdDao");
 
     FourDao fourDao = (FourDao) getInstance("fourDao");
 
@@ -67,8 +64,6 @@ public class GangAoDAOTest extends BaseTestClass {
 
         querySecond();
 
-        queryThird();
-
         queryfourDao();
 
         queryfiveths();
@@ -91,18 +86,6 @@ public class GangAoDAOTest extends BaseTestClass {
         List<Second> seconds = secondDao.querSecondList(endDate, reportType);
 
         System.out.println(seconds.size());
-    }
-
-    @Test
-    public void queryThird(){
-
-        String endDate = "2017-03-31 00:00:00";
-
-        int reportType = 1;
-
-        List<Third> thirds = thirdDao.queryThird(endDate, reportType);
-
-        System.out.println(thirds.size());
     }
 
     @Test

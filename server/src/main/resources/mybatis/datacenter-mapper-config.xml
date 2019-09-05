@@ -9,6 +9,7 @@
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
 	<typeAliases>
+		<typeAlias alias="IntelligentStock" type="com.youguu.intelligent.pojo.IntelligentStock"/>
 		<typeAlias alias="StkBasicinfo" type="com.youguu.intelligent.pojo.StkBasicinfo"/>
 
 		<typeAlias alias="First" type="com.youguu.intelligent.pojo.First"/>
@@ -22,12 +23,11 @@
 	</typeAliases>
 	<!-- 使用spring之后，数据源的配置移植到了spring上，所以iBATIS本身的配置可以取消 -->
 	<mappers>
-		<!--<mapper resource="mybatis/stock/intelligent_stock_mapper.xml"/>-->
+		<mapper resource="mybatis/stock/intelligent_stock_mapper.xml"/>
 		<mapper resource="mybatis/gangao/com_stock_mapper.xml"/>
 
 		<mapper resource="mybatis/gangao/first_mapper.xml"/>
 		<mapper resource="mybatis/gangao/second_mapper.xml"/>
-		<mapper resource="mybatis/gangao/third_mapper.xml"/>
 		<mapper resource="mybatis/gangao/four_mapper.xml"/>
 		<mapper resource="mybatis/gangao/five_mapper.xml"/>
 		<mapper resource="mybatis/gangao/six_mapper.xml"/>

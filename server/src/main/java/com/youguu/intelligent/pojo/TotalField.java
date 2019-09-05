@@ -87,6 +87,11 @@ public class TotalField {
      */
     private Date enddate;
 
+    //30日收入金额
+
+
+    //30日流出金额
+
     public Date getEnddate() {
         return enddate;
     }
